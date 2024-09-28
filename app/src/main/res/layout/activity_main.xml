@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:layout_height="match_parent"
+
+
+    android:padding="20dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Simple Calculator"
+        android:layout_gravity="center"
+        android:textSize="30sp"
+        android:textStyle="bold|italic"/>
+
+    <EditText
+        android:id="@+id/num1"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="30dp"
+        android:background="@drawable/rectanglebox"
+        android:hint="Enter number"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/num2"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="30dp"
+        android:hint="Enter number"
+        android:inputType="number"
+        android:background="@drawable/rectanglebox"
+        android:layout_marginTop="50dp"/>
+
+    <TextView
+        android:id="@+id/total"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="30dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:background="@drawable/rectanglebox"/>
+
+
+    <LinearLayout
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/addition"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/operationbox"
+            android:text="+"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/subtract"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:background="@drawable/operationbox"
+            android:text="-"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+
+    </LinearLayout>
+    <LinearLayout
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/multiply"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:text="*"
+            android:background="@drawable/operationbox"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/division"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:text="/"
+            android:background="@drawable/operationbox"
+            android:textColor="@color/black"
+            android:textSize="20sp"/>
+    </LinearLayout>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/advcalcu"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="Go to Advance Calculator -->"
+        android:background="#FFF5E4"/>
+
+
+
+
+</LinearLayout>
