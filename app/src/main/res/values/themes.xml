@@ -12,6 +12,7 @@
 
     <style name="Screenbackground"><item name="android:background">@color/white</item></style>
     <style name="operationbox"><item name="android:background">@color/aqua</item></style>
-    <style name="TextColor"><item name="android:textColor">@color/black</item></style>
+    <color name="textColor"><item name="android:light">#000000</item></color>
+    <style name="Text"><item name="android:textColor">@color/black</item></style>
 
 </resources>
