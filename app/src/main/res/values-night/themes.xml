@@ -3,5 +3,14 @@
     <style name="Base.Theme.Calculator" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="colorPrimary">@color/darkgrey</item>
+        <item name="colorOnPrimary">@color/darkgrey</item>
+
+        <item name="colorSecondary">@color/black</item>
     </style>
+    <style name="Screenbackground"><item name="android:background">@color/darkblue</item></style>
+    <style name="operationbox"><item name="android:background">@color/navy</item></style>
+    <style name="TextColor"><item name="android:textColor">@color/white</item></style>
+
+
 </resources>

@@ -1,4 +1,5 @@
-# Calculator-Android-Studio
-Java android Studio Calculator
+# Simple Calculator
 
-AHHAHAHHAHAHAHAHHAHA
+Simple Java Android Studio Calculator
+
+

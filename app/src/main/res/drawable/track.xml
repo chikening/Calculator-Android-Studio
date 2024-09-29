@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Checked State -->
+    <item android:state_checked="true">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/darkgrey" /> <!-- Dark grey color for checked state -->
+            <size android:height="8dp" /> <!-- Track height -->
+            <corners android:radius="100dp" /> <!-- Rounded corners for track -->
+        </shape>
+    </item>
+
+    <!-- Unchecked State -->
+    <item android:state_checked="false">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/aqua" /> <!-- Aqua color for unchecked state -->
+            <size android:height="8dp" /> <!-- Track height -->
+            <corners android:radius="100dp" /> <!-- Rounded corners for track -->
+        </shape>
+    </item>
+
+</selector>

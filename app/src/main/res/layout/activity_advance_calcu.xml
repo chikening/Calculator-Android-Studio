@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/white"
+    style="@style/Screenbackground"
     tools:context=".AdvanceCalcu"
     android:padding="16dp">
 
@@ -14,16 +14,45 @@
         android:layout_width="match_parent"
         android:layout_height="200dp">
 
+
         <TextView
             android:id="@+id/operation"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="right|bottom"
-            android:hint="0"
-            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:gravity="right"
+            android:maxLines="2"
+            android:scrollHorizontally="true"
+            style="@style/TextColor"
             android:textSize="45sp"
             android:textStyle="bold"
             android:padding="16dp" />
+
+        <!-- TextView for displaying total/result -->
+        <TextView
+            android:id="@+id/total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/operation"
+            android:layout_alignParentRight="true"
+            android:gravity="right"
+            android:maxLines="1"
+            style="@style/TextColor"
+            android:textSize="50sp"
+            android:textStyle="bold"
+            android:padding="16dp" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switchMode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
+            android:thumb="@drawable/thumb"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:track="@drawable/track"/>
+
 
         <!-- You can add a button for Light/Dark mode toggle here if needed -->
     </RelativeLayout>
@@ -47,8 +76,8 @@
             android:layout_height="90dp"
             android:layout_columnWeight="1"
             android:text="AC"
-            android:textColor="@color/red"
-            android:background="@drawable/operationbox"
+            android:textColor="@color/orange"
+            style="@style/operationbox"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -58,8 +87,8 @@
             android:layout_height="90dp"
             android:layout_columnWeight="1"
             android:text="⌫"
-            android:textColor="@color/red"
-            android:background="@drawable/operationbox"
+            android:textColor="@color/orange"
+            style="@style/operationbox"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -69,8 +98,8 @@
             android:layout_height="90dp"
             android:layout_columnWeight="1"
             android:text="%"
-            android:textColor="@color/red"
-            android:background="@drawable/operationbox"
+            android:textColor="@color/orange"
+            style="@style/operationbox"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -80,8 +109,8 @@
             android:layout_height="90dp"
             android:layout_columnWeight="1"
             android:text="÷"
-            android:textColor="@color/red"
-            android:background="@drawable/operationbox"
+            android:textColor="@color/orange"
+            style="@style/operationbox"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -92,7 +121,7 @@
             android:layout_height="90dp"
             android:layout_columnWeight="1"
             android:text="7"
-            android:textColor="@color/black"
+            style="@style/TextColor"
             android:background="@drawable/operationbox"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -103,7 +132,7 @@
             android:layout_height="90dp"
             android:layout_columnWeight="1"
             android:text="8"
-            android:textColor="@color/black"
+            style="@style/TextColor"
             android:background="@drawable/operationbox"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -114,7 +143,7 @@
             android:layout_height="90dp"
             android:layout_columnWeight="1"
             android:text="9"
-            android:textColor="@color/black"
+            style="@style/TextColor"
             android:background="@drawable/operationbox"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -125,8 +154,8 @@
             android:layout_height="90dp"
             android:layout_columnWeight="1"
             android:text="×"
-            android:textColor="@color/red"
-            android:background="@drawable/operationbox"
+            android:textColor="@color/orange"
+            style="@style/operationbox"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -137,7 +166,7 @@
             android:layout_height="90dp"
             android:layout_columnWeight="1"
             android:text="4"
-            android:textColor="@color/black"
+            style="@style/TextColor"
             android:background="@drawable/operationbox"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -148,7 +177,7 @@
             android:layout_height="90dp"
             android:layout_columnWeight="1"
             android:text="5"
-            android:textColor="@color/black"
+            style="@style/TextColor"
             android:background="@drawable/operationbox"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -159,7 +188,7 @@
             android:layout_height="90dp"
             android:layout_columnWeight="1"
             android:text="6"
-            android:textColor="@color/black"
+            style="@style/TextColor"
             android:background="@drawable/operationbox"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -170,8 +199,8 @@
             android:layout_height="90dp"
             android:layout_columnWeight="1"
             android:text="-"
-            android:textColor="@color/red"
-            android:background="@drawable/operationbox"
+            android:textColor="@color/orange"
+            style="@style/operationbox"
             android:textSize="20sp"
             android:textStyle="bold" />
         <!-- Fourth Row (1, 2, 3, +) -->
@@ -181,7 +210,7 @@
             android:layout_height="90dp"
             android:layout_columnWeight="1"
             android:text="1"
-            android:textColor="@color/black"
+            style="@style/TextColor"
             android:background="@drawable/operationbox"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -192,7 +221,7 @@
             android:layout_height="90dp"
             android:layout_columnWeight="1"
             android:text="2"
-            android:textColor="@color/black"
+            style="@style/TextColor"
             android:background="@drawable/operationbox"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -203,7 +232,7 @@
             android:layout_height="90dp"
             android:layout_columnWeight="1"
             android:text="3"
-            android:textColor="@color/black"
+            style="@style/TextColor"
             android:background="@drawable/operationbox"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -214,8 +243,8 @@
             android:layout_height="90dp"
             android:layout_columnWeight="1"
             android:text="+"
-            android:textColor="@color/red"
-            android:background="@drawable/operationbox"
+            android:textColor="@color/orange"
+            style="@style/operationbox"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -226,7 +255,7 @@
             android:layout_height="90dp"
             android:layout_columnWeight="1"
             android:text="."
-            android:textColor="@color/black"
+            style="@style/TextColor"
             android:background="@drawable/operationbox"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -237,7 +266,7 @@
             android:layout_height="90dp"
             android:layout_columnWeight="1"
             android:text="0"
-            android:textColor="@color/black"
+            style="@style/TextColor"
             android:background="@drawable/operationbox"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -255,7 +284,7 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
-
-
     </GridLayout>
+
 </LinearLayout>
+
