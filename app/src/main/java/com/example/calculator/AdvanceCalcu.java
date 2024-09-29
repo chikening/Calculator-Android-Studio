@@ -6,6 +6,7 @@ import androidx.activity.EdgeToEdge;
 
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -41,7 +42,7 @@ public class AdvanceCalcu extends AppCompatActivity {
         Button btnDivide = findViewById(R.id.btn_divide);
         Button btnEquals = findViewById(R.id.btn_equals);
         Button btnDeci = findViewById(R.id.btn_deci);
-        Button btnReset = findViewById(R.id.empty);
+        //Button btnReset = findViewById(R.id.empty);
         Button btnAC = findViewById(R.id.btnAc);
         Button btnEFunc = findViewById(R.id.btnfucn);
         Button btnPercent = findViewById(R.id.btnpercent);
@@ -58,12 +59,12 @@ public class AdvanceCalcu extends AppCompatActivity {
         btn9.setOnClickListener(view -> appendToOperation("9"));
         btnPlus.setOnClickListener(view -> appendToOperation("+"));
         btnMinus.setOnClickListener(view -> appendToOperation("-"));
-        btnMultiply.setOnClickListener(view -> appendToOperation("*"));
-        btnDivide.setOnClickListener(view -> appendToOperation("/"));
+        btnMultiply.setOnClickListener(view -> appendToOperation("×"));
+        btnDivide.setOnClickListener(view -> appendToOperation("÷"));
         btnEquals.setOnClickListener(view -> calculateResult());
         btnDeci.setOnClickListener(view -> appendToOperation("."));
         btnAC.setOnClickListener(view -> clearOperation());
-        btnReset.setOnClickListener(view -> clearOperation());
+        //btnReset.setOnClickListener(view -> clearOperation());
         btnPercent.setOnClickListener(view -> appendToOperation("%"));
         btnEFunc.setOnClickListener(view -> backspaceOperation());
 
@@ -77,8 +78,23 @@ public class AdvanceCalcu extends AppCompatActivity {
         }
     }
     private void appendToOperation(String value) {
+        String currentText = operationTextView.getText().toString();
+
+        if (currentText.length() > 0) {
+            char lastChar = currentText.charAt(currentText.length() - 1);
+
+            //it will replace the arithmetic
+            if ("+-×÷".indexOf(lastChar) != -1) {
+                if ("+-×÷".indexOf(value) != -1) {
+                    currentText = currentText.substring(0, currentText.length() - 1) + value;
+                    operationTextView.setText(currentText);
+                    return;
+                }
+            }
+        }
         operationTextView.append(value);
     }
+
     private void clearOperation() {
         operationTextView.setText("");
     }
@@ -86,15 +102,19 @@ public class AdvanceCalcu extends AppCompatActivity {
         String operation = operationTextView.getText().toString();
 
         if (operation.isEmpty()) {
-            operationTextView.setText("Enter a valid expression");
+            Toast.makeText(this, "Enter a valid expression", Toast.LENGTH_SHORT).show();
             return;
+        }
+
+        if (operation.endsWith("+") || operation.endsWith("-") || operation.endsWith("*") || operation.endsWith("÷")) {
+            operation = operation.substring(0, operation.length() - 1);
         }
 
         try {
             double result = evaluateExpression(operation);
             operationTextView.setText(String.valueOf(result));
         } catch (Exception e) {
-            operationTextView.setText("Invalid expression");
+            Toast.makeText(this, "Invalid expression", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -134,24 +154,26 @@ public class AdvanceCalcu extends AppCompatActivity {
             double parseTerm() {
                 double x = parseFactor();
                 for (;;) {
-                    if (eat('*')) x *= parseFactor(); // multiplication
-                    else if (eat('/')) x /= parseFactor(); // division
+                    if (eat('×')) x *= parseFactor(); // multiplication
+                    else if (eat('÷')) x /= parseFactor(); // division
                     else return x;
                 }
             }
 
             double parseFactor() {
-                if (eat('+')) return parseFactor(); //
-                if (eat('-')) return -parseFactor(); //
+                if (eat('+')) return parseFactor(); // unary plus
+                if (eat('-')) return -parseFactor(); // unary minus
 
                 double x;
                 int startPos = this.pos;
-                if (eat('(')) { // this is parentheses
+                if (eat('(')) { // parentheses
                     x = parseExpression();
                     eat(')');
-                } else if ((ch >= '0' && ch <= '9') || ch == '.') { // to numbers
+                } else if ((ch >= '0' && ch <= '9') || ch == '.') { // numbers
                     while ((ch >= '0' && ch <= '9') || ch == '.') nextChar();
                     x = Double.parseDouble(expression.substring(startPos, this.pos));
+                } else if (eat('%')) { // percentage
+                    x = parseFactor() / 100.0; // handle percentage
                 } else {
                     throw new RuntimeException("Unexpected: " + (char) ch);
                 }
@@ -160,6 +182,5 @@ public class AdvanceCalcu extends AppCompatActivity {
             }
         }.parse();
     }
-
 
 }
