@@ -11,6 +11,7 @@
     <style name="Screenbackground"><item name="android:background">@color/darkblue</item></style>
     <style name="operationbox"><item name="android:background">@color/navy</item></style>
     <style name="TextColor"><item name="android:textColor">@color/white</item></style>
+    <style name="Text"><item name="android:textColor">@color/white</item></style>
 
 
 </resources>
