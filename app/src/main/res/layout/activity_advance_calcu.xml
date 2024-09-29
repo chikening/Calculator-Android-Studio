@@ -25,7 +25,7 @@
             android:maxLines="2"
             android:scrollHorizontally="true"
             style="@style/TextColor"
-            android:textSize="45sp"
+            android:textSize="40sp"
             android:textStyle="bold"
             android:padding="16dp" />
 
