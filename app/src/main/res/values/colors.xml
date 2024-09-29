@@ -7,16 +7,20 @@
     <color name="silver">#C0C0C0</color>
     <color name="gray">#808080</color>
     <color name="olive">#808000</color>
-    <color name="purple">#800080</color>
+    <color name="purple">#1F1B24</color>
     <color name="maroon">#800000</color>
-    <color name="aqua">#00FFFF</color>
+    <color name="aqua">#d6f9ef</color>
     <color name="lime">#00FF00</color>
     <color name="teal">#008080</color>
     <color name="green">#008000</color>
-    <color name="blue">#0000FF</color>
-    <color name="navy">#000080</color>
+    <color name="blue">#37474f</color>
+    <color name="navy">#081b33</color>
+    <color name="darkblue">#141414</color>
     <color name="black">#000000</color>
     <color name="orange">#C5491C</color>
+    <color name="darkgrey">#121212</color>
+    <color name="lavender">#8692f7</color>
+
 
 
 
