@@ -6,6 +6,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.content.Intent;
+import android.widget.Toast;
 
 
 import androidx.activity.EdgeToEdge;
@@ -74,13 +75,17 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-    private void calculate(char operator){
+    private void calculate(char operator) {
         String input1 = num1.getText().toString();
         String input2 = num2.getText().toString();
 
-        if (input1.isEmpty() || input2.isEmpty()){
-            total.setText("enter a number");
+        // Check if either of the input fields is empty
+        if (input1.isEmpty() || input2.isEmpty()) {
+            // Show a Toast message if one or both inputs are empty
+            Toast.makeText(MainActivity.this, "Please enter both numbers", Toast.LENGTH_SHORT).show();
+            return; // Exit the method
         }
+
         double number1 = Double.parseDouble(input1);
         double number2 = Double.parseDouble(input2);
         int result = 0;
@@ -105,7 +110,6 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
         total.setText(String.valueOf(result));
-
-
     }
+
 }
