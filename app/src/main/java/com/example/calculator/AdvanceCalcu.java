@@ -73,10 +73,9 @@ public class AdvanceCalcu extends AppCompatActivity {
 
 
 
-        operationTextView = findViewById(R.id.operation); // The TextView to show the operation
-        totalTextView = findViewById(R.id.total);         // The TextView to show the result/total
+        operationTextView = findViewById(R.id.operation);
+        totalTextView = findViewById(R.id.total);
 
-        // Set placeholder "0" in operationTextView when the app is first opened
         operationTextView.setText("0");
 
         Button btn0 = findViewById(R.id.btn_zero);
@@ -123,26 +122,23 @@ public class AdvanceCalcu extends AppCompatActivity {
     private void backspaceOperation() {
         String currentText = operationTextView.getText().toString();
         if (currentText.length() > 0) {
-            // Remove the last character from the operation string
             operationTextView.setText(currentText.substring(0, currentText.length() - 1));
         }
         if (operationTextView.getText().toString().isEmpty()) {
-            operationTextView.setText("0"); // Display "0" if the operation text is empty
+            operationTextView.setText("0");
         }
-        adjustTextSize(operationTextView); // Adjust text size after backspacing
+        adjustTextSize(operationTextView);
     }
 
     private void appendToOperation(String value) {
         String currentText = operationTextView.getText().toString();
 
-        // If the current text is "0", replace it with the new value
         if (currentText.equals("0")) {
             operationTextView.setText(value);
         } else {
             if (currentText.length() > 0) {
                 char lastChar = currentText.charAt(currentText.length() - 1);
 
-                // Replace the arithmetic operator if needed
                 if ("+-×÷".indexOf(lastChar) != -1) {
                     if ("+-×÷".indexOf(value) != -1) {
                         currentText = currentText.substring(0, currentText.length() - 1) + value;
@@ -152,13 +148,10 @@ public class AdvanceCalcu extends AppCompatActivity {
                 }
             }
 
-            // Handle percentage conversion
             if ("%".equals(value)) {
-                // If a number is followed by a '%', convert the number to a percentage
                 String[] parts = currentText.split("[+\\-×÷]");
                 String lastPart = parts[parts.length - 1];
 
-                // Convert the last number into a percentage (divide by 100)
                 if (!lastPart.isEmpty()) {
                     try {
                         double number = Double.parseDouble(lastPart);
@@ -166,24 +159,22 @@ public class AdvanceCalcu extends AppCompatActivity {
                         currentText = currentText.substring(0, currentText.length() - lastPart.length()) + percentage;
                         operationTextView.setText(currentText);
                     } catch (NumberFormatException e) {
-                        // Handle invalid input, if any
                         Toast.makeText(this, "Invalid number for percentage", Toast.LENGTH_SHORT).show();
                         return;
                     }
                 }
             } else {
-                // Append the normal value if it's not a percentage
                 operationTextView.append(value);
             }
         }
 
-        adjustTextSize(operationTextView); // Adjust text size after appending
+        adjustTextSize(operationTextView);
     }
 
     private void clearOperation() {
-        operationTextView.setText("0"); // Set "0" as placeholder after clearing the operation
+        operationTextView.setText("0");
         totalTextView.setText("");
-        adjustTextSize(operationTextView); // Reset text size after clearing
+        adjustTextSize(operationTextView);
     }
 
     private void calculateResult() {
@@ -201,8 +192,8 @@ public class AdvanceCalcu extends AppCompatActivity {
 
         try {
             double result = evaluateExpression(operation);
-            totalTextView.setText(String.valueOf(result)); // Display result in totalTextView
-            adjustTextSize(totalTextView); // Adjust text size after calculating
+            totalTextView.setText(String.valueOf(result));
+            adjustTextSize(totalTextView);
         } catch (Exception e) {
             Toast.makeText(this, "Invalid expression", Toast.LENGTH_SHORT).show();
         }
@@ -212,16 +203,15 @@ public class AdvanceCalcu extends AppCompatActivity {
         String text = textView.getText().toString();
         float textSize = textView == operationTextView ? 45f : 50f; // Initial sizes
 
-        // Adjust the text size based on the length of the text
         if (text.length() > 15) {
-            textSize -= 15; // Reduce size if more than 15 characters
+            textSize -= 15;
         } else if (text.length() > 10) {
-            textSize -= 10; // Reduce size if more than 10 characters
+            textSize -= 10;
         } else if (text.length() > 5) {
-            textSize -= 5; // Reduce size if more than 5 characters
+            textSize -= 5;
         }
 
-        textView.setTextSize(textSize); // Set the adjusted text size
+        textView.setTextSize(textSize);
     }
 
     private double evaluateExpression(String expression) {
