@@ -79,9 +79,7 @@ public class MainActivity extends AppCompatActivity {
         String input1 = num1.getText().toString();
         String input2 = num2.getText().toString();
 
-        // Check if either of the input fields is empty
         if (input1.isEmpty() || input2.isEmpty()) {
-            // Show a Toast message if one or both inputs are empty
             Toast.makeText(MainActivity.this, "Please enter both numbers", Toast.LENGTH_SHORT).show();
             return; // Exit the method
         }

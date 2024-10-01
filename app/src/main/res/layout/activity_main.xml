@@ -115,7 +115,7 @@
         android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:text="Go to Advance Calculator -->"
-        android:background="#FFF5E4"/>
+        android:background="#FFF5E4" />
 
 
 
